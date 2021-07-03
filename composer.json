@@ -1,0 +1,25 @@
+{
+    "name": "farazin-co/laravel-persian-datetime-helper",
+    "description": "Persian DateTime Helper for Laravel",
+    "keywords": ["laravel", "persian", "jalali", "datetime"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hossein Askari",
+            "email": "h.askari.16@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7",
+        "illuminate/support": "^6|^7|^8",
+        "morilog/jalali": "3.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "FarazinCo\\Datetime\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    }
+}
