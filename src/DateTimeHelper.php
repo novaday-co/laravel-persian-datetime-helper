@@ -47,7 +47,6 @@ class DateTimeHelper
         return $startDate->diffInMonths($deadlineDate, false);
     }
 
-
     /**
      * Get Diff Day From Jalali Dates
      * @param $fromDate
@@ -88,7 +87,6 @@ class DateTimeHelper
         return $startDate->diffInHours($deadlineDate, false);
     }
 
-
     /**
      * Get Diff Minutes From Jalali Dates
      * @param $fromDate
@@ -109,7 +107,45 @@ class DateTimeHelper
         return $startDate->diffInMinutes($deadlineDate, false);
     }
 
+    /**
+     * Make Time Zero From DateTime
+     * @param $dateTime
+     * @return Carbon
+     */
+    public function clearTime($dateTime)
+    {
+        $dt = Carbon::now();
+        $dt->year(Carbon::parse($dateTime)->year);
+        $dt->month(Carbon::parse($dateTime)->month);
+        $dt->day(Carbon::parse($dateTime)->day);
+        $dt->hour(00);
+        $dt->minute(00);
+        $dt->second(00);
 
+        return $dt;
+    }
+
+    /**
+     * Get Minutes From DateTime
+     * @param $dateTime
+     * @return float|int
+     */
+    public function getMinutes($dateTime)
+    {
+        return Carbon::parse($dateTime)->hour * 60 + Carbon::parse($dateTime)->minute;
+    }
+
+    /**
+     * Get First Day Of Month From Given jalali DateTime
+     * @param $dateTime
+     * @return float|int
+     */
+    public function firstDayOfMonth($dateTime)
+    {
+        $miladiDatetime = self::jalaliToGregorian($dateTime);
+        $yearAndMonth = jdate($miladiDatetime)->format('Y-m');
+        return $yearAndMonth . '-01 00:00:00';
+    }
 
 
 }
