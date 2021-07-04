@@ -29,16 +29,16 @@ class DateTimeHelper
 
     /**
      * Get Diff Months From Jalali Dates
-     * @param $fromDate
-     * @param $toDate
+     * @param $fromDateTime
+     * @param $toDateTime
      * @return int
      * @throws Exception
      */
-    public static function jalaliDiffInMonths($fromDate, $toDate)
+    public static function jalaliDiffInMonths($fromDateTime, $toDateTime)
     {
         // convert to gregorian
-        $miladiFromDate = self::jalaliToGregorian($fromDate);
-        $miladiToDate = self::jalaliToGregorian($toDate);
+        $miladiFromDate = self::jalaliToGregorian($fromDateTime);
+        $miladiToDate = self::jalaliToGregorian($toDateTime);
 
         $carbon = new Carbon();
         $startDate = $carbon::parse($miladiFromDate);
@@ -49,16 +49,16 @@ class DateTimeHelper
 
     /**
      * Get Diff Day From Jalali Dates
-     * @param $fromDate
-     * @param $toDate
+     * @param $fromDateTime
+     * @param $toDateTime
      * @return int
      * @throws Exception
      */
-    public static function jalaliDiffInDays($fromDate, $toDate)
+    public static function jalaliDiffInDays($fromDateTime, $toDateTime)
     {
         // convert to gregorian
-        $miladiFromDate = self::jalaliToGregorian($fromDate);
-        $miladiToDate = self::jalaliToGregorian($toDate);
+        $miladiFromDate = self::jalaliToGregorian($fromDateTime);
+        $miladiToDate = self::jalaliToGregorian($toDateTime);
 
         $carbon = new Carbon();
         $startDate = $carbon::parse($miladiFromDate);
@@ -69,16 +69,16 @@ class DateTimeHelper
 
     /**
      * Get Diff Hour From Jalali Dates
-     * @param $fromDate
-     * @param $toDate
+     * @param $fromDateTime
+     * @param $toDateTime
      * @return int
      * @throws Exception
      */
-    public static function jalaliDiffInHours($fromDate, $toDate)
+    public static function jalaliDiffInHours($fromDateTime, $toDateTime)
     {
         // convert to gregorian
-        $miladiFromDate = self::jalaliToGregorian($fromDate);
-        $miladiToDate = self::jalaliToGregorian($toDate);
+        $miladiFromDate = self::jalaliToGregorian($fromDateTime);
+        $miladiToDate = self::jalaliToGregorian($toDateTime);
 
         $carbon = new Carbon();
         $startDate = $carbon::parse($miladiFromDate);
@@ -89,16 +89,16 @@ class DateTimeHelper
 
     /**
      * Get Diff Minutes From Jalali Dates
-     * @param $fromDate
-     * @param $toDate
+     * @param $fromDateTime
+     * @param $toDateTime
      * @return int
      * @throws Exception
      */
-    public static function jalaliDiffInMinutes($fromDate, $toDate)
+    public static function jalaliDiffInMinutes($fromDateTime, $toDateTime)
     {
         // convert to gregorian
-        $miladiFromDate = self::jalaliToGregorian($fromDate);
-        $miladiToDate = self::jalaliToGregorian($toDate);
+        $miladiFromDate = self::jalaliToGregorian($fromDateTime);
+        $miladiToDate = self::jalaliToGregorian($toDateTime);
 
         $carbon = new Carbon();
         $startDate = $carbon::parse($miladiFromDate);
@@ -112,7 +112,7 @@ class DateTimeHelper
      * @param $dateTime
      * @return Carbon
      */
-    public function clearTime($dateTime)
+    public static function clearTime($dateTime)
     {
         $dt = Carbon::now();
         $dt->year(Carbon::parse($dateTime)->year);
@@ -130,7 +130,7 @@ class DateTimeHelper
      * @param $dateTime
      * @return float|int
      */
-    public function getMinutes($dateTime)
+    public static function getMinutes($dateTime)
     {
         return Carbon::parse($dateTime)->hour * 60 + Carbon::parse($dateTime)->minute;
     }
@@ -140,11 +140,33 @@ class DateTimeHelper
      * @param $dateTime
      * @return float|int
      */
-    public function firstDayOfMonth($dateTime)
+    public static function firstDayOfMonth($dateTime)
     {
         $miladiDatetime = self::jalaliToGregorian($dateTime);
         $yearAndMonth = jdate($miladiDatetime)->format('Y-m');
         return $yearAndMonth . '-01 00:00:00';
+    }
+
+    /**
+     * Get First Day Of Year jalali
+     * @return string
+     */
+    public static function firstDayOfYear()
+    {
+        return jdate()->getYear()  . '-' . '01' . '-' . '01' . ' 00:00:00';
+
+    }
+
+    /**
+     * Get Last Day Of Year jalali
+     * @return string
+     */
+    public static function lastDayOfYear()
+    {
+        $firstOfNextYear = jdate()->addYears(1)->getYear() . '-' . '01' . '-' . '01' . ' 23:59:59';
+        $lastDayOfYearMiladi = Carbon::parse(self::jalaliToGregorian($firstOfNextYear))->subDay()->format('Y-m-d H:i:s');
+
+        return jdate($lastDayOfYearMiladi)->format('Y-m-d H:i:s');
     }
 
 

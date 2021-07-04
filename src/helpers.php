@@ -22,22 +22,22 @@ if (! function_exists('datetime_slice')) {
                 return isset($by_space[1]) ? $by_space[1] : '00:00:00';
                 break;
             case 'year':
-                return $by_colon_date[0];
+                return $by_colon_date[0] ?? jdate()->getYear();
                 break;
             case 'month':
-                return $by_colon_date[1];
+                return $by_colon_date[1] ?? jdate()->getMonth();
                 break;
             case 'day':
-                return $by_colon_date[2];
+                return $by_colon_date[2] ?? jdate()->getDay();
                 break;
             case 'hour':
-                return $by_colon_time[0];
+                return $by_colon_time[0] ?? jdate()->getHour();
                 break;
             case 'minute':
-                return $by_colon_time[1];
+                return $by_colon_time[1] ?? jdate()->getMinute();
                 break;
             case 'second':
-                return $by_colon_time[2];
+                return $by_colon_time[2] ?? jdate()->getSecond();
                 break;
         }
 
