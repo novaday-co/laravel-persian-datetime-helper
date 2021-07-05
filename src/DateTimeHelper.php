@@ -148,6 +148,19 @@ class DateTimeHelper
     }
 
     /**
+     * Get Last Day Of Month From Given jalali DateTime
+     * @param $dateTime
+     * @return float|int
+     */
+    public static function lastDayOfMonth($dateTime)
+    {
+        $miladiDatetime = self::jalaliToGregorian($dateTime);
+        $lastDay = jdate($miladiDatetime)->getMonthDays();
+        $yearAndMonth = jdate($miladiDatetime)->format('Y-m');
+        return $yearAndMonth . '-' . $lastDay . ' 00:00:00';
+    }
+
+    /**
      * Get First Day Of Year jalali
      * @return string
      */
