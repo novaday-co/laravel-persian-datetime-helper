@@ -14,6 +14,9 @@
         "illuminate/support": "^6|^7|^8",
         "morilog/jalali": "3.*"
     },
+    "require-dev" : {
+        "phpunit/phpunit": "~4.0"
+    },
     "autoload": {
         "psr-4": {
             "FarazinCo\\Datetime\\": "src/"
@@ -21,5 +24,11 @@
         "files": [
             "src/helpers.php"
         ]
-    }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "FarazinCo\\Datetime\\Tests\\": "tests/"
+        }
+    },
+    "minimum-stablity": "dev"
 }
