@@ -29,17 +29,17 @@ DateTimeHelper::jalaliToGregorian('1400-04-13') : string ('Y-m-d H:i:s')
 ---
 
 ```
-DateTimeHelper::jalaliDiffInMonths('1400-02-23 10:27:52', '1400-04-13 15:16:10') : int
+DateTimeHelper::jalaliDiffInMonths('1400-02-23 10:27:52', '1400-04-23 15:16:10') : int
 // 2
 
-DateTimeHelper::jalaliDiffInMonths('1400-02-23', '1400-04-13') : int
+DateTimeHelper::jalaliDiffInMonths('1400-02-23', '1400-04-23') : int
 // 2
 ```
 ---
 
 ```
 DateTimeHelper::jalaliDiffInDays('1400-02-13 15:16:10', '1400-02-23 10:27:52') : int
-// 10
+// 9
 
 DateTimeHelper::jalaliDiffInDays('1400-02-13', '1400-02-23') : int
 // 10
@@ -96,7 +96,7 @@ DateTimeHelper::firstDayOfYear() :  string ('Y-m-d H:i:s')
 ---
 ```
 DateTimeHelper::lastDayOfYear() :  string ('Y-m-d H:i:s')
-// 1400-12-29 00:00:00
+// 1400-12-29 23:59:59
 ```
 
 
