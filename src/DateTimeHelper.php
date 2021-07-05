@@ -1,5 +1,5 @@
 <?php
-namespace Barryvdh\Queue;
+namespace FarazinCo\Datetime;
 
 use Carbon\Carbon;
 use Exception;
