@@ -1,16 +1,16 @@
 <?php
 
 
-if (! function_exists('datetime_slice')) {
+if (! function_exists('datetimeSlice')) {
     /**
      * @param $datetime_string
      * @param $slice_type
      * @return bool
      */
-    function datetime_slice($datetime_string, $slice_type)
+    function datetimeSlice($datetime_string, $slice_type)
     {
 
-        $datetime_string = convert_numbers_to_english($datetime_string);
+        $datetime_string = convertNumbersToEnglish($datetime_string);
         $by_space = explode(' ', $datetime_string);
         $by_colon_date = explode('-', $by_space[0]);
         $by_colon_time = explode(':', isset($by_space[1]) ? $by_space[1] : '00:00:00');
@@ -45,12 +45,12 @@ if (! function_exists('datetime_slice')) {
     }
 }
 
-if (! function_exists('convert_numbers_to_english')) {
+if (! function_exists('convertNumbersToEnglish')) {
     /**
      * @param $string
      * @return mixed
      */
-    function convert_numbers_to_english($string)
+    function convertNumbersToEnglish($string)
     {
         return \Morilog\Jalali\CalendarUtils::convertNumbers($string, true);
     }
@@ -64,5 +64,26 @@ if (! function_exists('datetimeIn2Digit')) {
         if ($digitCount == 1)
             return '0' . $input;
         else return $input;
+    }
+}
+
+if (! function_exists('validateDateTime')) {
+    function validateDateTime($dateTime, $format = 'Y-m-d H:i:s'){
+        $dateTimeFormat = DateTime::createFromFormat($format, $dateTime);
+        return $dateTimeFormat && $dateTimeFormat->format($format) === $dateTime;
+    }
+}
+
+if (! function_exists('createDateTimeFromTime')) {
+    /**
+     * Set Time To Today Date - when date does not matter
+     * @param $time
+     * @return string
+     */
+    function createDateTimeFromTime($time){
+        if(validateDateTime($time, 'H:i:s'))
+            return jdate()->format('Y-m-d') . ' ' . $time;
+        else
+            throw new \InvalidArgumentException('Invalid Time : ' . $time);
     }
 }

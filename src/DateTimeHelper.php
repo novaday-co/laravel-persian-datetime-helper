@@ -1,5 +1,5 @@
 <?php
-namespace Barryvdh\Queue;
+namespace FarazinCo\Datetime;
 
 use Carbon\Carbon;
 use Exception;
@@ -8,22 +8,23 @@ class DateTimeHelper
 {
 
     /**
+     * Convert Jalali Datetime To Gregorian
      * @param $jdate
      * @return string
      */
     public static function jalaliToGregorian($jdate)
     {
         $miladi_array = \Morilog\Jalali\CalendarUtils::toGregorian(
-          datetime_slice($jdate, 'year'),
-          datetime_slice($jdate, 'month'),
-          datetime_slice($jdate, 'day')
+          datetimeSlice($jdate, 'year'),
+          datetimeSlice($jdate, 'month'),
+          datetimeSlice($jdate, 'day')
         );
 
         $miladi_array = array_map(function($val) { return datetimeIn2Digit($val); }, $miladi_array);
 
         $date = implode('-', $miladi_array);
 
-        return $date . " " . datetime_slice($jdate, 'time');
+        return $date . " " . datetimeSlice($jdate, 'time');
 
     }
 
@@ -77,12 +78,14 @@ class DateTimeHelper
     public static function jalaliDiffInHours($fromDateTime, $toDateTime)
     {
         // convert to gregorian
-        $miladiFromDate = self::jalaliToGregorian($fromDateTime);
-        $miladiToDate = self::jalaliToGregorian($toDateTime);
+        $miladiFromDate = self::jalaliToGregorian((validateDateTime($fromDateTime, 'Y-m-d H:i:s')) ? $fromDateTime : createDateTimeFromTime($fromDateTime));
+        $miladiToDate = self::jalaliToGregorian((validateDateTime($toDateTime, 'Y-m-d H:i:s')) ? $toDateTime : createDateTimeFromTime($toDateTime));
+
 
         $carbon = new Carbon();
         $startDate = $carbon::parse($miladiFromDate);
         $deadlineDate = $carbon::parse($miladiToDate);
+
 
         return $startDate->diffInHours($deadlineDate, false);
     }
@@ -97,8 +100,8 @@ class DateTimeHelper
     public static function jalaliDiffInMinutes($fromDateTime, $toDateTime)
     {
         // convert to gregorian
-        $miladiFromDate = self::jalaliToGregorian($fromDateTime);
-        $miladiToDate = self::jalaliToGregorian($toDateTime);
+        $miladiFromDate = self::jalaliToGregorian((validateDateTime($fromDateTime, 'Y-m-d H:i:s')) ? $fromDateTime : createDateTimeFromTime($fromDateTime));
+        $miladiToDate = self::jalaliToGregorian((validateDateTime($toDateTime, 'Y-m-d H:i:s')) ? $toDateTime : createDateTimeFromTime($toDateTime));
 
         $carbon = new Carbon();
         $startDate = $carbon::parse($miladiFromDate);
