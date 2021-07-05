@@ -9,7 +9,7 @@
 ### Composer
 Installing with composer is recommended and it simply works :<br><br>
 ```
-composer install FarazinCo\laravel-persian-datetime-helper
+composer require farazin-co\laravel-persian-datetime-helper
 ```
 
 ### Download
