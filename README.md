@@ -68,6 +68,36 @@ DateTimeHelper::clearTime('1400-04-23 15:16:10') :  jdate ('Y-m-d H:i:s')
 // 1400-04-23 00:00:00
 ```
 ---
+```
+DateTimeHelper::getMinutes('1400-04-23 15:16:10') :  int
+// 916 = 15*60 + 16
+```
+---
+```
+DateTimeHelper::firstDayOfMonth('1400-04-23 15:16:10') :  jdate ('Y-m-d H:i:s')
+// 1400-04-01 00:00:00
+
+DateTimeHelper::firstDayOfMonth('1400-04-23') :  jdate ('Y-m-d H:i:s')
+// 1400-04-01 00:00:00
+```
+---
+```
+DateTimeHelper::lastDayOfMonth('1400-04-23 15:16:10') :  jdate ('Y-m-d H:i:s')
+// 1400-04-31 00:00:00
+
+DateTimeHelper::lastDayOfMonth('1400-08-23') :  jdate ('Y-m-d H:i:s')
+// 1400-08-30 00:00:00
+```
+---
+```
+DateTimeHelper::firstDayOfYear() :  jdate ('Y-m-d H:i:s')
+// 1400-01-01 00:00:00
+```
+---
+```
+DateTimeHelper::lastDayOfYear() :  jdate ('Y-m-d H:i:s')
+// 1400-12-29 00:00:00
+```
 
 
 
