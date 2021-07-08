@@ -8,7 +8,7 @@
 
 ### Composer
 Installing with composer is recommended and it simply works :<br><br>
-```
+```composer
 composer require farazin-co/laravel-persian-datetime-helper
 ```
 
@@ -19,7 +19,7 @@ You can download latest version from the Github: Download
 To use in your project, just import `DateTimeHelper` class : <br>
 
 
-```
+```php
 DateTimeHelper::jalaliToGregorian('1400-04-13 15:16:10') : string ('Y-m-d H:i:s')
 // 2021-07-04 15:16:10
 
@@ -28,7 +28,7 @@ DateTimeHelper::jalaliToGregorian('1400-04-13') : string ('Y-m-d H:i:s')
 ```
 ---
 
-```
+```php
 DateTimeHelper::jalaliDiffInMonths('1400-02-23 10:27:52', '1400-04-23 15:16:10') : int
 // 2
 
@@ -37,7 +37,7 @@ DateTimeHelper::jalaliDiffInMonths('1400-02-23', '1400-04-23') : int
 ```
 ---
 
-```
+```php
 DateTimeHelper::jalaliDiffInDays('1400-02-13 15:16:10', '1400-02-23 10:27:52') : int
 // 9
 
@@ -46,7 +46,7 @@ DateTimeHelper::jalaliDiffInDays('1400-02-13', '1400-02-23') : int
 ```
 ---
 
-```
+```php
 DateTimeHelper::jalaliDiffInHours('1400-04-23 15:16:10', '1400-04-23 22:27:52') : int
 // 7
 
@@ -54,7 +54,7 @@ DateTimeHelper::jalaliDiffInHours('15:16:10', '22:27:52') : int
 // 7
 ```
 ---
-```
+```php
 DateTimeHelper::jalaliDiffInMinutes('1400-04-23 15:16:10', '1400-04-23 22:27:52') : int
 // 431
 
@@ -63,17 +63,17 @@ DateTimeHelper::jalaliDiffInMinutes('15:16:10', '22:27:52') : int
 ```
 ---
 
-```
+```php
 DateTimeHelper::clearTime('1400-04-23 15:16:10') :  string ('Y-m-d H:i:s')
 // 1400-04-23 00:00:00
 ```
 ---
-```
+```php
 DateTimeHelper::getMinutes('1400-04-23 15:16:10') :  int
 // 916 = 15*60 + 16
 ```
 ---
-```
+```php
 DateTimeHelper::firstDayOfMonth('1400-04-23 15:16:10') :  string ('Y-m-d H:i:s')
 // 1400-04-01 00:00:00
 
@@ -81,7 +81,7 @@ DateTimeHelper::firstDayOfMonth('1400-04-23') :  string ('Y-m-d H:i:s')
 // 1400-04-01 00:00:00
 ```
 ---
-```
+```php
 DateTimeHelper::lastDayOfMonth('1400-04-23 15:16:10') :  string ('Y-m-d H:i:s')
 // 1400-04-31 00:00:00
 
@@ -89,12 +89,12 @@ DateTimeHelper::lastDayOfMonth('1400-08-23') :  string ('Y-m-d H:i:s')
 // 1400-08-30 00:00:00
 ```
 ---
-```
+```php
 DateTimeHelper::firstDayOfYear() :  string ('Y-m-d H:i:s')
 // 1400-01-01 00:00:00
 ```
 ---
-```
+```php
 DateTimeHelper::lastDayOfYear() :  string ('Y-m-d H:i:s')
 // 1400-12-29 23:59:59
 ```
