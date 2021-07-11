@@ -3,6 +3,7 @@
 namespace FarazinCo\Datetime\Tests;
 
 use FarazinCo\Datetime\DateTimeHelper;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 final class DateTimeHelperTest extends TestCase
@@ -45,10 +46,29 @@ final class DateTimeHelperTest extends TestCase
         $this->assertEquals($jalaliTime, 431);
     }
 
+    public function testFailJalaliDiffInMinutes()
+    {
+
+        $this->expectException(InvalidArgumentException::class);
+        $jalaliTime = DateTimeHelper::jalaliDiffInMinutes('15:16', '22:27:52');
+    }
+
     public function testClearTime()
     {
         $jalaliDateTime = DateTimeHelper::clearTime('1400-04-23 15:16:10');
         $this->assertEquals($jalaliDateTime, "1400-04-23 00:00:00");
+    }
+
+    public function testDatetimeSliceFunction()
+    {
+        $jalaliDate = datetimeSlice('1400-04-23 15:16:10', 'date');
+        $this->assertEquals($jalaliDate, "1400-04-23");
+        $jalaliHour = datetimeSlice('1400-04-23 15:16:10', 'hour');
+        $this->assertEquals($jalaliHour, "15");
+        $jalaliMinute = datetimeSlice('1400-04-23 15:16:10', 'minute');
+        $this->assertEquals($jalaliMinute, "16");
+        $jalaliSecond = datetimeSlice('1400-04-23 15:16:10', 'second');
+        $this->assertEquals($jalaliSecond, "10");
     }
 
     public function testGetMinutes()
