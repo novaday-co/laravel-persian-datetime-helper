@@ -8,7 +8,7 @@
 
 ### Composer
 Installing with composer is recommended and it simply works :<br><br>
-```
+```composer
 composer require farazin-co/laravel-persian-datetime-helper
 ```
 
