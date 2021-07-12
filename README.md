@@ -1,7 +1,7 @@
 <h1 align="center">Laravel Persian DateTime Helper</h1>
 <p align="center">
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/hosein-xz/laravel-persian-datetime-helper.svg">
-  <img alt="GitHub" src="https://img.shields.io/github/license/hosein-xz/laravel-persian-datetime-helper.svg">
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/farazin-co/laravel-persian-datetime-helper.svg">
+  <img alt="GitHub" src="https://img.shields.io/github/license/farazin-co/laravel-persian-datetime-helper.svg">
 </p>
 
 ## Install
