@@ -8,6 +8,31 @@ use PHPUnit\Framework\TestCase;
 
 final class DateTimeHelperTest extends TestCase
 {
+
+    public function testParse()
+    {
+        $jalaliDateTime = DateTimeHelper::parse('1400-04-13 15:16:10');
+        $this->assertEquals($jalaliDateTime->dateTime, "1400-04-13 15:16:10");
+    }
+
+    public function testParseWithoutInput()
+    {
+        $jalaliDateTime = DateTimeHelper::parse();
+        $this->assertEquals($jalaliDateTime->dateTime, jdate()->format('Y-m-d H:i:s'));
+    }
+
+    public function testFailParse()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        DateTimeHelper::parse('1400-04-13 15:16');
+    }
+
+    public function testFormat()
+    {
+        $jalaliDateTime = DateTimeHelper::parse('1400-04-13 15:16:12')->format('Y-m-d');
+        $this->assertEquals($jalaliDateTime, "1400-04-13");
+    }
+
     public function testJalaliToGregorian()
     {
         $jalaliDateTime = DateTimeHelper::jalaliToGregorian('1400-04-13 15:16:10');

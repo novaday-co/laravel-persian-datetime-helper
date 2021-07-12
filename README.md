@@ -20,6 +20,15 @@ To use in your project, just import `DateTimeHelper` class : <br>
 
 
 ```php
+$instance = DateTimeHelper::parse('1400-04-13 15:16:10') : DateTimeHelper
+// $instance->dateTime = '1400-04-13 15:16:10'
+
+DateTimeHelper::parse('1400-04-13 15:16:10')->format('Y-m-d') : string ('Y-m-d H:i:s')
+// 1400-04-13
+```
+---
+
+```php
 DateTimeHelper::jalaliToGregorian('1400-04-13 15:16:10') : string ('Y-m-d H:i:s')
 // 2021-07-04 15:16:10
 

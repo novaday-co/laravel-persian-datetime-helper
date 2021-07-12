@@ -6,6 +6,35 @@ use Exception;
 
 class DateTimeHelper
 {
+    private static $instance = null;
+    public $dateTime;
+
+    /**
+     * parse DateTime And return Instance From That
+     * @param $datetime
+     * @return DateTimeHelper|null
+     */
+    public static function parse($datetime = null)
+    {
+        if(!is_null($datetime) && !validateDateTime($datetime))
+            throw new \InvalidArgumentException('Invalid DateTime : ' . $datetime);
+
+        if (self::$instance == null)
+            self::$instance = new DateTimeHelper();
+
+        self::$instance->dateTime = $datetime ?? jdate()->format('Y-m-d H:i:s');
+        return self::$instance;
+    }
+
+    /**
+     * return DateTime With Given Format
+     * @param $format
+     * @return string
+     */
+    public function format($format)
+    {
+        return jdate(self::jalaliToGregorian(self::$instance->dateTime))->format($format);
+    }
 
     /**
      * Convert Jalali Datetime To Gregorian
