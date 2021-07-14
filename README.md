@@ -23,7 +23,7 @@ To use in your project, just import `DateTimeHelper` class : <br>
 $instance = DateTimeHelper::parse('1400-04-13 15:16:10') : DateTimeHelper
 // $instance->dateTime = '1400-04-13 15:16:10'
 
-DateTimeHelper::parse('1400-04-13 15:16:10')->format('Y-m-d') : string ('Y-m-d H:i:s')
+DateTimeHelper::parse('1400-04-13 15:16:10')->format('Y-m-d') : string
 // 1400-04-13
 ```
 ---
