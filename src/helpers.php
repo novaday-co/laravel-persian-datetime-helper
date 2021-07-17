@@ -87,3 +87,14 @@ if (! function_exists('createDateTimeFromTime')) {
             throw new \InvalidArgumentException('Invalid Time : ' . $time);
     }
 }
+
+if (! function_exists('convertToDashFormat')) {
+    /**
+     * Convert / or _ in Date Format To -
+     * @param $datetime
+     * @return string
+     */
+    function convertToDashFormat($datetime){
+        return str_replace('_', '-', str_replace('/', '-', $datetime));
+    }
+}
