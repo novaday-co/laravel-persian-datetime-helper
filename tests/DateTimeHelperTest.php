@@ -15,6 +15,12 @@ final class DateTimeHelperTest extends TestCase
         $this->assertEquals($jalaliDateTime->dateTime, "1400-04-13 15:16:10");
     }
 
+    public function testParseWithMultipleSpaces()
+    {
+        $jalaliDateTime = DateTimeHelper::parse('1400-04-13   15:16:10');
+        $this->assertEquals($jalaliDateTime->dateTime, "1400-04-13 15:16:10");
+    }
+
     public function testParseWithSlash()
     {
         $jalaliDateTime = DateTimeHelper::parse('1400/04/13 15:16:10');

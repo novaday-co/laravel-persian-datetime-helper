@@ -95,6 +95,17 @@ if (! function_exists('convertToDashFormat')) {
      * @return string
      */
     function convertToDashFormat($datetime){
-        return str_replace('_', '-', str_replace('/', '-', $datetime));
+        return str_replace('_', '-', str_replace('/', '-', removeMultipleSpaces($datetime)));
+    }
+}
+
+if (! function_exists('removeMultipleSpaces')) {
+    /**
+     * Remove Multiple Spaces
+     * @param $datetime
+     * @return string
+     */
+    function removeMultipleSpaces($datetime){
+        return preg_replace('/\s+/', ' ', $datetime);
     }
 }
