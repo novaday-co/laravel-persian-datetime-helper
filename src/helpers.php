@@ -109,3 +109,19 @@ if (! function_exists('removeMultipleSpaces')) {
         return preg_replace('/\s+/', ' ', $datetime);
     }
 }
+
+if (! function_exists('completeTimeFormat')) {
+    /**
+     * Add Seconds To Time Format If Format Was H:i
+     * @param $datetime
+     * @return string
+     */
+    function completeTimeFormat($datetime){
+        $time = datetimeSlice($datetime, 'time');
+        if(strlen($time) == 5)
+            $time = $time . ':00';
+
+        return $time;
+
+    }
+}

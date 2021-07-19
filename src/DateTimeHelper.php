@@ -19,6 +19,8 @@ class DateTimeHelper
         if(!is_null($datetime))
             $datetime = convertToDashFormat($datetime);
 
+        $datetime = completeTimeFormat($datetime);
+
 
         if(!is_null($datetime) && !validateDateTime($datetime))
             throw new \InvalidArgumentException('Invalid DateTime : ' . $datetime);
