@@ -34,6 +34,14 @@ DateTimeHelper::parse('1400/04/13 15:16:10')->format('Y/m/d') : string
 ---
 
 ```php
+// Accept H:i Format
+
+DateTimeHelper::parse('1400/04/13 15:16')->format('Y-m-d H:i:s') :  string ('Y-m-d H:i:s')
+// 1400-04-13 15:16:00
+```
+---
+
+```php
 //ignore multiple space from input
 
 $instance = DateTimeHelper::parse('1400-04-13   15:16:10') : DateTimeHelper
