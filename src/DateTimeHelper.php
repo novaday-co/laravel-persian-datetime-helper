@@ -16,11 +16,10 @@ class DateTimeHelper
      */
     public static function parse($datetime = null)
     {
-        if(!is_null($datetime))
+        if(!is_null($datetime)){
             $datetime = convertToDashFormat($datetime);
-
-        $datetime = completeTimeFormat($datetime);
-
+            $datetime = completeTimeFormat($datetime);
+        }
 
         if(!is_null($datetime) && !validateDateTime($datetime))
             throw new \InvalidArgumentException('Invalid DateTime : ' . $datetime);

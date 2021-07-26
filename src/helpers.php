@@ -117,11 +117,12 @@ if (! function_exists('completeTimeFormat')) {
      * @return string
      */
     function completeTimeFormat($datetime){
+        $date = datetimeSlice($datetime, 'date');
         $time = datetimeSlice($datetime, 'time');
         if(strlen($time) == 5)
             $time = $time . ':00';
 
-        return $time;
+        return $date . ' ' . $time;
 
     }
 }
