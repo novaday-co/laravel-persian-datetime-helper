@@ -1,7 +1,7 @@
 <h1 align="center">Laravel Persian DateTime Helper</h1>
 <p align="center">
-  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/farazin-co/laravel-persian-datetime-helper.svg">
-  <img alt="GitHub" src="https://img.shields.io/github/license/farazin-co/laravel-persian-datetime-helper.svg">
+  <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/novaday-co/laravel-persian-datetime-helper.svg">
+  <img alt="GitHub" src="https://img.shields.io/github/license/novaday-co/laravel-persian-datetime-helper.svg">
 </p>
 
 ## Install
@@ -9,7 +9,7 @@
 ### Composer
 Installing with composer is recommended and it simply works :<br><br>
 ```composer
-composer require farazin-co/laravel-persian-datetime-helper
+composer require novaday-co/laravel-persian-datetime-helper
 ```
 
 ### Download

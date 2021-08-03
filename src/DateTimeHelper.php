@@ -1,5 +1,5 @@
 <?php
-namespace FarazinCo\Datetime;
+namespace NovadayCo\Datetime;
 
 use Carbon\Carbon;
 use Exception;

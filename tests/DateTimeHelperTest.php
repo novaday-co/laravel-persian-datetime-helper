@@ -1,8 +1,8 @@
 <?php
 
-namespace FarazinCo\Datetime\Tests;
+namespace NovadayCo\Datetime\Tests;
 
-use FarazinCo\Datetime\DateTimeHelper;
+use NovadayCo\Datetime\DateTimeHelper;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 

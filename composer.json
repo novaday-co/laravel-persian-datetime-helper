@@ -1,5 +1,5 @@
 {
-    "name": "farazin-co/laravel-persian-datetime-helper",
+    "name": "novaday-co/laravel-persian-datetime-helper",
     "description": "Persian DateTime Helper for Laravel",
     "keywords": ["laravel", "persian", "jalali", "datetime"],
     "license": "MIT",
@@ -19,7 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "FarazinCo\\Datetime\\": "src/"
+            "NovadayCo\\Datetime\\": "src/"
         },
         "files": [
             "src/helpers.php"
@@ -27,7 +27,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "FarazinCo\\Datetime\\Tests\\": "tests/"
+            "NovadayCo\\Datetime\\Tests\\": "tests/"
         }
     },
     "minimum-stablity": "dev"
