@@ -11,38 +11,39 @@ final class DateTimeHelperTest extends TestCase
 
     public function testParse()
     {
-        $jalaliDateTime = DateTimeHelper::parse('1400-04-13 15:16:10');
-        $this->assertEquals($jalaliDateTime->dateTime, "1400-04-13 15:16:10");
+        $jalaliDateTime = DateTimeHelper::parse('1400-04-13 15:16:10')->format('Y-m-d H:i:s');
+        $this->assertEquals($jalaliDateTime, "1400-04-13 15:16:10");
     }
 
     public function testParseWithoutSeconds()
     {
-        $jalaliDateTime = DateTimeHelper::parse('1400/04/13 15:16');
-        $this->assertEquals($jalaliDateTime->dateTime, "1400-04-13 15:16:00");
+        $jalaliDateTime = DateTimeHelper::parse('1400/04/13 15:16')->format('Y-m-d H:i:s');
+        $this->assertEquals($jalaliDateTime, "1400-04-13 15:16:00");
     }
 
     public function testParseWithMultipleSpaces()
     {
-        $jalaliDateTime = DateTimeHelper::parse('1400-04-13   15:16:10');
-        $this->assertEquals($jalaliDateTime->dateTime, "1400-04-13 15:16:10");
+        $jalaliDateTime = DateTimeHelper::parse('1400-04-13   15:16:10')->format('Y-m-d H:i:s');
+        $this->assertEquals($jalaliDateTime, "1400-04-13 15:16:10");
     }
 
     public function testParseWithSlash()
     {
-        $jalaliDateTime = DateTimeHelper::parse('1400/04/13 15:16:10');
-        $this->assertEquals($jalaliDateTime->dateTime, "1400-04-13 15:16:10");
+        $jalaliDateTime = DateTimeHelper::parse('1400/04/13 15:16:10')->format('Y-m-d H:i:s');
+        $this->assertEquals($jalaliDateTime, "1400-04-13 15:16:10");
     }
 
     public function testParseWithUnderline()
     {
-        $jalaliDateTime = DateTimeHelper::parse('1400_04_13 15:16:10');
-        $this->assertEquals($jalaliDateTime->dateTime, "1400-04-13 15:16:10");
+        $jalaliDateTime = DateTimeHelper::parse('1400_04_13 15:16:10')->format('Y-m-d H:i:s');
+        $this->assertEquals($jalaliDateTime, "1400-04-13 15:16:10");
     }
 
     public function testParseWithoutInput()
     {
-        $jalaliDateTime = DateTimeHelper::parse();
-        $this->assertEquals($jalaliDateTime->dateTime, jdate()->format('Y-m-d H:i:s'));
+
+        $jalaliDateTime = DateTimeHelper::parse()->format('Y-m-d H:i:s');
+        $this->assertEquals($jalaliDateTime, jdate()->format('Y-m-d H:i:s'));
     }
 
     public function testFailParse()
@@ -157,8 +158,8 @@ final class DateTimeHelperTest extends TestCase
     public function testCopyDateTime()
     {
         $jalaliDateTime = DateTimeHelper::parse('1400-04-13 15:16:10');
-        $cloneJalaliDateTime = $jalaliDateTime->copy();
-        $this->assertEquals($cloneJalaliDateTime->dateTime, "1400-04-13 15:16:10");
+        $cloneJalaliDateTime = DateTimeHelper::copy($jalaliDateTime)->format('Y-m-d H:i:s');
+        $this->assertEquals($cloneJalaliDateTime, "1400-04-13 15:16:10");
         $this->assertNotSame($cloneJalaliDateTime, $jalaliDateTime);
     }
 }
