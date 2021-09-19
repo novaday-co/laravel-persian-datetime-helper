@@ -153,4 +153,12 @@ final class DateTimeHelperTest extends TestCase
         $jalaliDateTime = DateTimeHelper::lastDayOfYear();
         $this->assertEquals($jalaliDateTime, "1400-12-29 23:59:59");
     }
+
+    public function testCopyDateTime()
+    {
+        $jalaliDateTime = DateTimeHelper::parse('1400-04-13 15:16:10');
+        $cloneJalaliDateTime = $jalaliDateTime->copy();
+        $this->assertEquals($cloneJalaliDateTime->dateTime, "1400-04-13 15:16:10");
+        $this->assertNotSame($cloneJalaliDateTime, $jalaliDateTime);
+    }
 }

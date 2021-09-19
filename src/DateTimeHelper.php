@@ -42,6 +42,17 @@ class DateTimeHelper
     }
 
     /**
+     * clone given DateTime
+     * @return string
+     */
+    public function copy()
+    {
+        $cloneDateTime = new DateTimeHelper();
+        $cloneDateTime->dateTime = self::$instance->dateTime;
+        return $cloneDateTime;
+    }
+
+    /**
      * Convert Jalali Datetime To Gregorian
      * @param $jdate
      * @return string
