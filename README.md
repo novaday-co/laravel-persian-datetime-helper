@@ -42,6 +42,17 @@ DateTimeHelper::parse('1400/04/13 15:16')->format('Y-m-d H:i:s') :  string ('Y-m
 ---
 
 ```php
+// Clone
+
+$jalaliDateTime = DateTimeHelper::parse('1400-04-13 15:16:10');
+$cloneJalaliDateTime = DateTimeHelper::copy($jalaliDateTime)->format('Y-m-d H:i:s');
+// 1400-04-13 15:16:10
+// $jalaliDateTime == $cloneJalaliDateTime
+// $jalaliDateTime !== $cloneJalaliDateTime
+```
+---
+
+```php
 //ignore multiple space from input
 
 $instance = DateTimeHelper::parse('1400-04-13   15:16:10') : DateTimeHelper
