@@ -20,10 +20,9 @@ To use in your project, just import `DateTimeHelper` class : <br>
 
 
 ```php
-$instance = DateTimeHelper::parse('1400-04-13 15:16:10') : DateTimeHelper
-$instance = DateTimeHelper::parse('1400/04/13 15:16:10') : DateTimeHelper
-$instance = DateTimeHelper::parse('1400_04_13 15:16:10') : DateTimeHelper
-// $instance->dateTime = '1400-04-13 15:16:10'
+$instance = DateTimeHelper::parse('1400-04-13 15:16:10') : Jalalian
+$instance = DateTimeHelper::parse('1400/04/13 15:16:10') : Jalalian
+$instance = DateTimeHelper::parse('1400_04_13 15:16:10') : Jalalian
 
 DateTimeHelper::parse('1400-04-13 15:16:10')->format('Y-m-d') : string
 // 1400-04-13
@@ -55,8 +54,8 @@ $cloneJalaliDateTime = DateTimeHelper::copy($jalaliDateTime)->format('Y-m-d H:i:
 ```php
 //ignore multiple space from input
 
-$instance = DateTimeHelper::parse('1400-04-13   15:16:10') : DateTimeHelper
-// $instance->dateTime = '1400-04-13 15:16:10'
+$instance = DateTimeHelper::parse('1400-04-13   15:16:10')->format('Y-m-d H:i:s') : string
+// 1400-04-13 15:16:10
 ```
 ---
 
